@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>root - formulario - callejuelas</title>
+</head>
+<body>
+    <header>
+        <nav>ROOT - Conjunto Residencial Callejuelas</nav>
+    </header>
+<center>
+  <p class="title">Informacion de datos enviados</p>
+  <% if(data.length >= 1) { %>
+    <a href="/download-excel">Descargar Excel</a>
+
+    <% } %>
+</center>
+    <section>
+        <div>
+            <div class="row">
+
+                <% if(data.length >= 1) { %>
+                    <% data.forEach((el) => { %>  
+
+                <div class="card">
+                  <center><h2><%= el.nombre %></h2></center>
+                  <p><span class="spanData">Cedula: </span><%= el.cedula %></p>
+                  <p><span class="spanData">Numero Celular: </span><%= el.numero %></p>
+                  <p><span class="spanData">Correo: </span><%= el.correo %></p>
+                  <p><span class="spanData">Fijo: </span><%= el.fijo %></p>
+                  <p><span class="spanData">Apartamento: </span><%= el.apt %></p>
+                  <p><span class="spanData">Torre: </span><%= el.torre %></p>
+                  <p><span class="spanData">Local: </span><%= el.local %></p>
+                  <p><span class="spanData">Parqueadero: </span><%= el.parqueadero %></p>
+                  <p><span class="spanData">Numero de residentes: </span><%= el.numeroResidentes %></p>
+                  <p><span class="spanData">Propiedad: </span><%= el.esUsted %></p>
+                  <p><span class="spanData">Placa Carro: </span><%= el.vehiculos[0] %></p>
+                  <p><span class="spanData">Placa Moto: </span><%= el.vehiculos[1] %></p>
+                  <p><span class="spanData">Perros: </span><%= el.mascotas[0].cantidadPerros %> - Razas: <%= el.mascotas[0].razaPerros %></p>
+                  <p><span class="spanData">Perros: </span><%= el.mascotas[1].cantidadGatos %> - Razas: <%= el.mascotas[1].razaGatos %></p>
+                  <p><span class="spanData">Visitantes Frecuentes: </span><%= el.visitantesFrecuentes %></p>
+                  <p><span class="spanData">Empleados: </span><%= el.empleados %></p>
+                </div>
+
+
+                <% }) %>
+            <% } else { %>
+                    <div class="cx">No se encontro ningun Dato</div>
+                <% } %>
+
+              </div>
+        </div>
+    </section>
+</body>
+<style>
+  a{
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: green;
+    color: white;
+    margin: 15px;
+    cursor: pointer;
+    font-size: 20px;
+    text-decoration: none;
+  }
+
+    .cx{
+        width: 100%;
+        background: red;
+        padding: 20px;
+        border-radius: 5px;
+        color: white;
+        text-align: center;
+        font-size: 20px;
+    }
+
+    *{
+        margin: 0;
+        padding: 0;
+    }
+
+    .spanData {
+        color: black;
+    }
+    header nav{
+        padding: 20px;
+        background-color: #1c1b1b;
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .title{
+        font-size: 30px;
+        margin: 20px;
+    }
+
+    #info {
+        padding: 2rem 0;
+      }
+      
+      .row {
+        width: 100%;
+        max-width: 50rem;
+        margin: 0 auto;
+        padding: 1.5rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+      
+      .card {
+        display: inline-block;
+        width: 85%;
+        padding: 4rem 1rem 7rem 1rem;
+        background-color: teal;
+        position: relative;
+        margin: 20px;
+      }
+      .card:after {
+        content: "";
+        display: block;
+        width: 0px;
+        height: 0px;
+        background-color: skyblue;
+        top: 0px;
+        right: 0px;
+        border-bottom: 20px solid #006767;
+        border-left: 20px solid #006767;
+        border-right: 20px solid white;
+        border-top: 20px solid white;
+        position: absolute;
+        filter: drop-shadow(-5px 5px 3px rgba(0, 0, 0, 0.5));
+      }
+      .card:before {
+        content: "";
+        display: block;
+        width: 0px;
+        height: 0px;
+        border-top: 40px solid #006767;
+        border-right: 40px solid #006767;
+        border-left: 40px solid white;
+        border-bottom: 40px solid white;
+        bottom: 0px;
+        left: 0px;
+        position: absolute;
+        filter: drop-shadow(7px -7px 5px rgba(0, 0, 0, 0.5));
+        margin-right: 10%;
+      }
+
+      .card h2 {
+        color: snow;
+        margin-bottom: 1rem;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .card p {
+        color: snow;
+        font-size: 1.1rem;
+        line-height: 140%;
+      }
+</style>
+</html>
